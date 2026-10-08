@@ -127,3 +127,18 @@ footer a { color: var(--muted); }
   .nav ul li.hide-sm { display: none; }
   .hero { padding: 48px 0 32px; }
 }
+
+/* ---------- Experience (featured) ---------- */
+.feature { display: grid; grid-template-columns: 1fr 1fr; }
+.feature .thumb { aspect-ratio: auto; min-height: 180px; padding: 24px; font-size: 1.4rem; }
+.feature .thumb img { width: auto; height: auto; max-height: 220px; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+.feature .role { font-size: .9rem; color: var(--muted); margin: 0; }
+.feature ul.points { margin: 0; padding-left: 18px; color: var(--muted); font-size: .95rem; }
+@media (max-width: 760px) { .feature { grid-template-columns: 1fr; } .feature .thumb img { max-height: 160px; } }
+
+/* ---------- Article extras ---------- */
+.article h3 { font-size: 1.05rem; margin: 24px 0 6px; }
+.gallery { display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0; }
+.gallery figure { margin: 0; flex: 1 1 240px; }
+.gallery img { border-radius: 8px; border: 1px solid var(--border); max-height: 280px; width: auto; }
+.gallery figcaption { font-size: .85rem; color: var(--muted); margin-top: 6px; }
