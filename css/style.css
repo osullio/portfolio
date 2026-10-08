@@ -158,3 +158,8 @@ footer .wrap { justify-content: center; flex-direction: column; align-items: cen
 .btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); filter: none; }
 .article h2, .article h3 { margin-left: auto; margin-right: auto; }
 .project-head h1 { color: var(--accent); }
+
+/* ---------- Card images ---------- */
+.card .thumb.has-img { padding: 0; overflow: hidden; }
+.card .thumb.contain { background: #0f0828; }
+.card .thumb.contain img { object-fit: contain; }
