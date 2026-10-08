@@ -11,7 +11,7 @@ projects/
   cadence-internship.html Cadence internship (general terms only)
   computer-vision.html  Abandoned & Removed Object Detection
   earth-lunar.html      Earth–Moon Rover Communication
-  arduino-pong.html     Handheld Arduino Pong (YouTube embed)
+  arduino-pong.html     Gyroscopic Arduino Pong (YouTube embed)
   _template.html        Copy this for projects without public code
 assets/
   img/                  Thumbnails and screenshots

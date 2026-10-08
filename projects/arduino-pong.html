@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Handheld Arduino Pong – Oran O'Sullivan</title>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Gyroscopic Arduino Pong – Oran O'Sullivan</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -21,32 +22,43 @@
 <header class="project-head">
   <div class="wrap">
     <a class="back" href="../index.html#projects">← All projects</a>
-    <h1>Handheld Arduino Pong</h1>
+    <h1>Gyroscopic Arduino Pong</h1>
     <p class="meta">Circuits and Systems Design module · <!-- EDIT: year / team --> [Year]</p>
-    <ul class="tags"><li>Arduino</li><li>C++</li><li>SSD1306 OLED</li><li>Interrupts</li><li>Fritzing</li></ul>
+    <ul class="tags"><li>Arduino</li><li>C++</li><li>Gyroscope</li><li>SSD1306 OLED</li><li>Interrupts</li><li>Fritzing</li></ul>
     <div class="links">
       <a class="btn primary" href="https://github.com/osullio/gyroscopic-pong">View code on GitHub</a>
+      <a class="btn" href="https://www.youtube.com/watch?v=TQeReYXM4l0">Watch on YouTube</a>
     </div>
   </div>
 </header>
 
 <main class="wrap article">
 
-  <!-- EDIT: replace VIDEO_ID with your YouTube video's ID (the part after "watch?v=").
-       If the video belongs to a different project, move this block to that page. -->
   <div class="video">
-    <iframe src="https://youtu.be/TQeReYXM4l0"
-            title="Arduino Pong demo" loading="lazy"
-            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
+  <iframe
+    src="https://www.youtube.com/embed/TQeReYXM4l0?rel=0"
+    title="Gyroscopic Pong demo"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
   <h2>Overview</h2>
   <p>
-    A handheld Pong console built on an Arduino. The game draws on a 128×64 SSD1306 OLED and is played with an
-    analog joystick against a bot that predicts where the ball will go.
+    A handheld Pong console built on an Arduino, where you move your paddle by tilting the console. A gyroscope
+    reads the tilt and the game draws on a 128×64 SSD1306 OLED. You play against a bot that predicts where the
+    ball will go. The video above shows the finished gyroscope version.
   </p>
 
-  <h2>Hardware</h2>
+  <div class="callout">
+    <strong>About the code:</strong> the GitHub repository holds the earlier joystick version of the game, which
+    has the same game loop, bot and display code but takes input from an analog joystick instead of the gyroscope.
+    The hardware and implementation notes below describe that version.
+  </div>
+
+  <h2>Hardware (joystick version)</h2>
   <ul>
     <li>Arduino board, with pin 2 used as an interrupt for the joystick button</li>
     <li>SSD1306 128×64 OLED over software SPI</li>
@@ -58,7 +70,7 @@
     Wiring diagram (Fritzing export) and a photo of the console
   </div>
 
-  <h2>How it works</h2>
+  <h2>How it works (joystick version)</h2>
   <ul>
     <li><strong>Game loop:</strong> each frame clears the buffer, reads input, moves both paddles, checks collisions, moves the ball and pushes the frame to the display.</li>
     <li><strong>Input:</strong> the joystick button is caught by a hardware interrupt, so the game never misses a serve. The Y axis has a dead zone so the paddle doesn't drift.</li>
@@ -69,7 +81,7 @@
 
   <h2>What's next</h2>
   <ul>
-    <li><!-- EDIT: if the name "gyroscopic" refers to planned gyroscope/tilt control, say so here -->[Planned: gyroscope tilt control]</li>
+    <li>Add the gyroscope version's code to the repository alongside the joystick version.</li>
     <li>Add Wi-Fi play against a laptop using the networking sketch already in the repo (Arduino UNO R4 WiFi).</li>
     <li>Add score keeping, and keep the ball speed consistent after the first bounce.</li>
   </ul>
