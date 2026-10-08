@@ -163,3 +163,16 @@ footer .wrap { justify-content: center; flex-direction: column; align-items: cen
 .card .thumb.has-img { padding: 0; overflow: hidden; }
 .card .thumb.contain { background: #0f0828; }
 .card .thumb.contain img { object-fit: contain; }
+
+/* ---------- Cadence logo ---------- */
+.feature .thumb.logo { background: #fff; padding: 24px; }
+.feature .thumb.logo img { width: 100%; max-width: 320px; height: auto; max-height: none; object-fit: contain; box-shadow: none; }
+
+/* ---------- Skills: centre every row ---------- */
+.skills { display: flex; flex-wrap: wrap; justify-content: center; }
+.skills > div { flex: 0 1 200px; }
+
+/* ---------- Contested ---------- */
+.contested { margin: 0 auto; max-width: 560px; }
+.contested img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); }
+.contested figcaption { margin-top: 12px; color: var(--muted); font-style: italic; }
