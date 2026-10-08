@@ -1,27 +1,20 @@
-/* ---------- Theme ---------- */
+/* ---------- Fonts ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Gloock&family=Schibsted+Grotesk:wght@400;600;700&display=swap");
+
+/* ---------- Theme (red & white) ---------- */
 :root {
-  --bg: #fafaf8;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --text: #1c1c1e;
-  --muted: #5f6368;
-  --border: #e3e3df;
-  --accent: #1f6feb;
-  --accent-soft: #e8f0fe;
-  --tag-bg: #f0f0ec;
+  --text: #1a1a1a;
+  --muted: #5c5555;
+  --border: #f0d4d4;
+  --accent: #c8102e;
+  --accent-dark: #9e0c24;
+  --accent-soft: #fdecee;
+  --tag-bg: #fdecee;
   --radius: 12px;
   --max: 960px;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111214;
-    --surface: #1a1b1e;
-    --text: #ececec;
-    --muted: #a0a4a8;
-    --border: #2c2e33;
-    --accent: #6ea8ff;
-    --accent-soft: #1d2a40;
-    --tag-bg: #25272b;
-  }
+  --display: "Gloock", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -30,7 +23,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font: 16px/1.65 "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  text-align: center;
 }
 a { color: var(--accent); }
 img { max-width: 100%; display: block; }
@@ -142,3 +136,25 @@ footer a { color: var(--muted); }
 .gallery figure { margin: 0; flex: 1 1 240px; }
 .gallery img { border-radius: 8px; border: 1px solid var(--border); max-height: 280px; width: auto; }
 .gallery figcaption { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+
+/* ---------- Headings font ---------- */
+h1, h2, h3, .nav .brand { font-family: var(--display); font-weight: 400; letter-spacing: .01em; }
+
+/* ---------- Red nav bar ---------- */
+.nav { background: var(--accent); border-bottom: none; }
+.nav .brand, .nav ul a { color: #fff; }
+.nav ul a { opacity: .85; }
+.nav ul a:hover { color: #fff; opacity: 1; }
+
+/* ---------- Centred layout ---------- */
+.hero .lead, .section-intro { margin-left: auto; margin-right: auto; }
+.hero .lead { max-width: 640px; }
+.links, .tags, .card .actions, .project-head .links { justify-content: center; }
+.hero h1, section > .wrap > h2 { color: var(--accent); }
+.article > * { margin-left: auto; margin-right: auto; }
+.article ul, .article ol, .feature ul.points { display: inline-block; text-align: left; }
+th, td { text-align: center; }
+footer .wrap { justify-content: center; flex-direction: column; align-items: center; }
+.btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); filter: none; }
+.article h2, .article h3 { margin-left: auto; margin-right: auto; }
+.project-head h1 { color: var(--accent); }
