@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abandoned &amp; Removed Object Detection – Oran O'Sullivan</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Oran O'Sullivan</a>
+    <ul>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#other-work">Other work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="project-head">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects">← All projects</a>
+    <h1>Abandoned &amp; Removed Object Detection</h1>
+    <p class="meta">Computer Vision module · Year 4, TCD · Individual assignment</p>
+    <ul class="tags"><li>C++</li><li>OpenCV 4.12</li><li>Background subtraction</li><li>Object tracking</li><li>Evaluation</li></ul>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/osullio/Computer-Vision-Project">View code on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <div class="figure">
+    <!-- EDIT: add a screenshot of the four debug windows (frame, GMM mask, motion mask, detections):
+         <img src="../assets/img/cv-demo.jpg" alt="Detection output showing frame, foreground mask, motion mask and detected objects"> -->
+    Screenshot: frame · GMM mask · motion mask · detections
+  </div>
+
+  <h2>Overview</h2>
+  <p>
+    Surveillance systems need to flag two kinds of change: a bag that's been <strong>left behind</strong>, and
+    something that's been <strong>taken</strong>. I wrote an OpenCV/C++ program that finds both in video, labels
+    each detection as abandoned or removed, and scores itself against hand-labelled ground truth.
+  </p>
+
+  <h2>How it works</h2>
+  <ol>
+    <li><strong>Background subtraction.</strong> A Gaussian Mixture Model (<code>BackgroundSubtractorMOG2</code>) separates foreground from background.</li>
+    <li><strong>Motion mask.</strong> Differencing each frame against one from five frames earlier separates <em>moving</em> foreground from <em>static</em> foreground.</li>
+    <li><strong>Persistence.</strong> Pixels that stay foreground without moving build up a count. A region that stays still for about 6 seconds becomes a candidate.</li>
+    <li><strong>Filtering &amp; tracking.</strong> Candidates are filtered by area (150–3000 px) and aspect ratio, tracked across frames, merged when they overlap, and confirmed after 15 consistent frames.</li>
+    <li><strong>Classification.</strong> Edges in the current frame are compared with a baseline of the empty scene. New edges mean an object was <em>abandoned</em>. Edges that have gone missing mean one was <em>removed</em>.</li>
+  </ol>
+
+  <h2>Evaluation</h2>
+  <p>
+    Each detection is matched to ground truth when IoU ≥ 0.5 and it falls within ±120 frames.
+    The program reports precision, recall and F1 for each video and overall, plus classification accuracy.
+  </p>
+  <div class="callout">
+    <!-- EDIT: paste your actual numbers from the program output -->
+    <strong>Results:</strong> Overall precision [x.xx], recall [x.xx], F1 [x.xx] across 9 test videos.
+  </div>
+
+  <h2>What I learned</h2>
+  <ul>
+    <li>[e.g. Tuning thresholds is a trade-off: a shorter persistence window catches more objects but brings in false alarms from people standing still.]</li>
+    <li>[e.g. Measuring against ground truth from the start made it clear which changes actually helped.]</li>
+  </ul>
+
+  <h2>What I'd do next</h2>
+  <ul>
+    <li>Fix the crash on Video 10 so the full dataset is covered.</li>
+    <li>Make the pipeline cross-platform (it currently builds with MSVC on Windows only).</li>
+    <li>[Your own idea, e.g. a learned person detector to reject people who stand still.]</li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="../index.html">← Back to portfolio</a>
+    <span><a href="https://github.com/osullio">GitHub</a> · <a href="mailto:osullio4@tcd.ie">osullio4@tcd.ie</a></span>
+  </div>
+</footer>
+</body>
+</html>

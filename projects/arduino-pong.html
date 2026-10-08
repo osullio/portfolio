@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Handheld Arduino Pong – Oran O'Sullivan</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Oran O'Sullivan</a>
+    <ul>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#other-work">Other work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="project-head">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects">← All projects</a>
+    <h1>Handheld Arduino Pong</h1>
+    <p class="meta">Circuits and Systems Design module · <!-- EDIT: year / team --> [Year]</p>
+    <ul class="tags"><li>Arduino</li><li>C++</li><li>SSD1306 OLED</li><li>Interrupts</li><li>Fritzing</li></ul>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/osullio/gyroscopic-pong">View code on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <!-- EDIT: replace VIDEO_ID with your YouTube video's ID (the part after "watch?v=").
+       If the video belongs to a different project, move this block to that page. -->
+  <div class="video">
+    <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+            title="Arduino Pong demo" loading="lazy"
+            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <h2>Overview</h2>
+  <p>
+    A handheld Pong console built on an Arduino. The game draws on a 128×64 SSD1306 OLED and is played with an
+    analog joystick against a bot that predicts where the ball will go.
+  </p>
+
+  <h2>Hardware</h2>
+  <ul>
+    <li>Arduino board, with pin 2 used as an interrupt for the joystick button</li>
+    <li>SSD1306 128×64 OLED over software SPI</li>
+    <li>Analog joystick (Y axis for the paddle, push-button to serve)</li>
+  </ul>
+  <div class="figure">
+    <!-- EDIT: export the Fritzing breadboard view as PNG and add it here, plus a photo of the build:
+         <img src="../assets/img/pong-wiring.png" alt="Fritzing wiring diagram"> -->
+    Wiring diagram (Fritzing export) and a photo of the console
+  </div>
+
+  <h2>How it works</h2>
+  <ul>
+    <li><strong>Game loop:</strong> each frame clears the buffer, reads input, moves both paddles, checks collisions, moves the ball and pushes the frame to the display.</li>
+    <li><strong>Input:</strong> the joystick button is caught by a hardware interrupt, so the game never misses a serve. The Y axis has a dead zone so the paddle doesn't drift.</li>
+    <li><strong>Bot:</strong> works out where the ball will reach its paddle from the ball's slope (<code>targetY = slope · Δx + ballY</code>) and moves toward that point at a capped speed, so steep shots can still beat it.</li>
+    <li><strong>Scaling:</strong> paddle and ball sizes are calculated from the screen size, not hard-coded, so the game adapts to other displays.</li>
+    <li><strong>Structure:</strong> a <code>Ball</code> class, display setup in its own header, and game logic split across separate files.</li>
+  </ul>
+
+  <h2>What's next</h2>
+  <ul>
+    <li><!-- EDIT: if the name "gyroscopic" refers to planned gyroscope/tilt control, say so here -->[Planned: gyroscope tilt control]</li>
+    <li>Add Wi-Fi play against a laptop using the networking sketch already in the repo (Arduino UNO R4 WiFi).</li>
+    <li>Add score keeping, and keep the ball speed consistent after the first bounce.</li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="../index.html">← Back to portfolio</a>
+    <span><a href="https://github.com/osullio">GitHub</a> · <a href="mailto:osullio4@tcd.ie">osullio4@tcd.ie</a></span>
+  </div>
+</footer>
+</body>
+</html>

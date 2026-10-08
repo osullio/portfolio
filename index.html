@@ -1,10 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Oran O'Sullivan</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oran O'Sullivan – Portfolio</title>
+  <meta name="description" content="Projects by Oran O'Sullivan, Computer & Electrical Engineering student at Trinity College Dublin.">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Oran O'Sullivan</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#other-work">Other work</a></li>
+      <li class="hide-sm"><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
     <h1>Oran O'Sullivan</h1>
-    <p>Computer & Electrical Engineering Student</p>
+    <p class="lead">
+      Computer &amp; Electrical Engineering student at Trinity College Dublin.
+      I build things across the stack: embedded hardware, networking protocols and computer vision.
+      <!-- EDIT: one sentence on what you're looking for, e.g. "Looking for graduate roles in ..." -->
+    </p>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/osullio">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a>  <!-- EDIT -->
+      <a class="btn" href="mailto:osullio4@tcd.ie">Email</a>
+      <a class="btn" href="assets/cv.pdf">CV (PDF)</a>                            <!-- EDIT: add assets/cv.pdf -->
+    </div>
+  </div>
+</header>
+
+<!-- ================= FEATURED PROJECTS (with code) ================= -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="section-intro">Projects with source code on GitHub.</p>
+
+    <div class="grid">
+
+      <article class="card">
+        <!-- EDIT: replace with <img src="assets/img/cv-thumb.jpg" alt="..."> -->
+        <div class="thumb">Abandoned &amp; Removed Object Detection</div>
+        <div class="body">
+          <h3>Abandoned &amp; Removed Object Detection</h3>
+          <p>OpenCV/C++ pipeline that spots objects left behind or taken from a scene in surveillance video, scored against hand-labelled ground truth.</p>
+          <ul class="tags"><li>C++</li><li>OpenCV</li><li>Background subtraction</li><li>Tracking</li></ul>
+          <div class="actions">
+            <a class="btn primary" href="projects/computer-vision.html">Read more</a>
+            <a class="btn" href="https://github.com/osullio/Computer-Vision-Project">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">Earth–Moon Rover Link</div>
+        <div class="body">
+          <h3>Earth–Moon Rover Communication</h3>
+          <p>Client/server protocol for a lunar rover with a hand-built binary header, Internet checksum, injected bit errors, light-speed delay and ACK/NAK recovery.</p>
+          <ul class="tags"><li>Python</li><li>C / Winsock</li><li>Sockets</li><li>Protocol design</li></ul>
+          <div class="actions">
+            <a class="btn primary" href="projects/earth-lunar.html">Read more</a>
+            <a class="btn" href="https://github.com/osullio/Earth-Lunar_Communication">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">Handheld Arduino Pong</div>
+        <div class="body">
+          <h3>Handheld Arduino Pong</h3>
+          <p>Pong console on an SSD1306 OLED, with interrupt-driven input and a bot that predicts the ball's path. Wiring designed in Fritzing.</p>
+          <ul class="tags"><li>Arduino</li><li>C++</li><li>Embedded</li><li>Fritzing</li></ul>
+          <div class="actions">
+            <a class="btn primary" href="projects/arduino-pong.html">Read more</a>
+            <a class="btn" href="https://github.com/osullio/gyroscopic-pong">Code</a>
+            <!-- EDIT: put this button on whichever project has the YouTube video -->
+            <a class="btn" href="https://www.youtube.com/watch?v=VIDEO_ID">Video</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= OTHER WORK (no public code) ================= -->
+<section id="other-work">
+  <div class="wrap">
+    <h2>Other work</h2>
+    <p class="section-intro">Internship and project work where the source isn't public.</p>
+
+    <div class="grid">
+
+      <!-- Copy this card for each extra project. Detail page: copy projects/_template.html -->
+      <article class="card">
+        <div class="thumb">[Internship project]</div>
+        <div class="body">
+          <h3>[Internship project title]</h3>
+          <p>[One line: what problem you worked on and what changed because of it.]</p>
+          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
+          <span class="label">Internship project, code not public</span>
+          <div class="actions">
+            <a class="btn primary" href="projects/_template.html">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">[Project name]</div>
+        <div class="body">
+          <h3>[Project title]</h3>
+          <p>[One line summary.]</p>
+          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
+          <span class="label">[Coursework / research / personal project]</span>
+          <div class="actions">
+            <a class="btn primary" href="projects/_template.html">Read more</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Languages</h3><ul class="tags"><li>C</li><li>C++</li><li>Python</li><li>Arduino</li></ul></div>
+      <div><h3>Libraries &amp; tools</h3><ul class="tags"><li>OpenCV</li><li>Git</li><li>VS Code</li><li>Arduino IDE</li></ul></div>
+      <div><h3>Hardware</h3><ul class="tags"><li>Embedded systems</li><li>Fritzing</li><li>OLED / SPI</li></ul></div>
+      <div><h3>Concepts</h3><ul class="tags"><li>Computer vision</li><li>Network protocols</li><li>Socket programming</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap article">
+    <h2>About</h2>
+    <p>
+      <!-- EDIT: 3–4 sentences. Year and course, what you're interested in, what you're looking for. -->
+      I'm a fourth-year Computer &amp; Electrical Engineering student at Trinity College Dublin. [Your interests, internship experience and what you're looking for next.]
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Oran O'Sullivan</span>
+    <span><a href="https://github.com/osullio">GitHub</a> · <a href="mailto:osullio4@tcd.ie">osullio4@tcd.ie</a></span>
+  </div>
+</footer>
+
 </body>
 </html>

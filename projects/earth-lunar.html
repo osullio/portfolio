@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Earth–Moon Rover Communication – Oran O'Sullivan</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Oran O'Sullivan</a>
+    <ul>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#other-work">Other work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="project-head">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects">← All projects</a>
+    <h1>Earth–Moon Rover Communication</h1>
+    <p class="meta">Computer Networks module · Group 7 · <!-- EDIT: year --> [Year]</p>
+    <ul class="tags"><li>Python</li><li>C / Winsock</li><li>TCP sockets</li><li>Checksums</li><li>Multithreading</li></ul>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/osullio/Earth-Lunar_Communication">View code on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <h2>Overview</h2>
+  <p>
+    A client/server system that simulates a ground station on Earth talking to a lunar rover. The client sends
+    commands. The rover replies with messages, temperature logs, movement confirmations and status reports.
+    The link is deliberately unreliable: packets are delayed by the Earth–Moon light-travel time (up to about 1.36 s)
+    and can have bits flipped in transit, so the protocol has to detect errors and recover from them.
+  </p>
+
+  <h2>My role</h2>
+  <p><!-- EDIT --> [Which parts you built, e.g. the header and checksum, the retransmission logic or the C prototype.]</p>
+
+  <h2>Protocol design</h2>
+  <p>
+    Each message is a <strong>24-byte header</strong>, packed by hand with bit shifts and modelled on TCP, followed by a UTF-8 payload.
+  </p>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Field</th><th>Purpose</th></tr>
+    <tr><td>Source / destination port</td><td>Service selection: the client's source port (5051–5054) chooses messaging, temperature, movement or status</td></tr>
+    <tr><td>Flags</td><td>ACK flag doubles as ACK/NAK: 0 means "please resend"</td></tr>
+    <tr><td>Checksum</td><td>16-bit one's-complement Internet checksum over header and payload</td></tr>
+    <tr><td>Option</td><td>Payload length, so the receiver reads exactly the right number of bytes</td></tr>
+  </table>
+  </div>
+
+  <div class="figure">
+    <!-- EDIT: a sequence diagram of send → corrupt → NAK → resend works well here -->
+    Diagram: stop-and-wait exchange with a corrupted packet and retransmission
+  </div>
+
+  <h2>Reliability</h2>
+  <ul>
+    <li><strong>Error injection:</strong> each send has a 10% chance of having bits flipped (1% per bit).</li>
+    <li><strong>Detection:</strong> the receiver re-runs the checksum, and a result of 0 means the packet is intact.</li>
+    <li><strong>Recovery:</strong> stop-and-wait with ACK/NAK. Corrupted packets trigger a resend, timeouts trigger a resend, and the server drops a client after more than 10 bad packets in a row.</li>
+    <li><strong>Concurrency:</strong> the server runs each ground-station client on its own thread.</li>
+  </ul>
+
+  <h2>What I learned</h2>
+  <ul>
+    <li>Length-prefixed framing is how you handle TCP's byte stream reliably, rather than hoping each <code>recv()</code> returns a whole message.</li>
+    <li>Building the reliability layer on top of TCP hides what it's really doing. Real transport-level recovery needs UDP.</li>
+    <li>Stop-and-wait has very low throughput on a high-latency link, which is why sliding-window protocols exist.</li>
+  </ul>
+
+  <h2>What I'd do next</h2>
+  <ul>
+    <li>Move to UDP and use sequence and ACK numbers properly (Go-Back-N).</li>
+    <li>Checksum the header separately so a corrupted length field can't desynchronise the stream.</li>
+    <li>Add unit tests for the header, checksum and bit-flip functions.</li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="../index.html">← Back to portfolio</a>
+    <span><a href="https://github.com/osullio">GitHub</a> · <a href="mailto:osullio4@tcd.ie">osullio4@tcd.ie</a></span>
+  </div>
+</footer>
+</body>
+</html>
