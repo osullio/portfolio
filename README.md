@@ -15,7 +15,6 @@ projects/
   _template.html        Copy this for projects without public code
 assets/
   img/                  Thumbnails and screenshots
-  cv.pdf                CV
 ```
 
 ## Publishing
