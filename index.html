@@ -7,27 +7,35 @@
   <meta name="description" content="Projects by Oran O'Sullivan, Computer & Electrical Engineering student at Trinity College Dublin.">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <nav class="nav">
   <div class="wrap">
     <a class="brand" href="index.html">Oran O'Sullivan</a>
+
     <ul>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li class="hide-sm"><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#about">About</a></li>
     </ul>
   </div>
 </nav>
 
+
+<!-- ================= HERO ================= -->
+
 <header class="hero">
   <div class="wrap">
     <h1>Oran O'Sullivan</h1>
+
     <p class="lead">
-      Computer &amp; Electrical Engineering student at Trinity College Dublin with a first-class fourth year behind me.
+      Computer &amp; Electrical Engineering student at Trinity College Dublin.
       I build things across the stack: EDA software, embedded hardware, networking protocols and computer vision.
     </p>
+
     <div class="links">
       <a class="btn primary" href="https://github.com/osullio">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/oran-o-sullivan-99b3682a8">LinkedIn</a>
@@ -35,136 +43,372 @@
   </div>
 </header>
 
+
 <!-- ================= EXPERIENCE ================= -->
+
 <section id="experience">
   <div class="wrap">
     <h2>Experience</h2>
-    <p class="section-intro">Industry work, described in general terms because it's proprietary.</p>
+
+    <p class="section-intro">
+      Industry work, described in general terms because it's proprietary.
+    </p>
 
     <article class="card feature">
-      <div class="thumb has-img logo"><img src="images/Cadence%20logo.png" alt="Cadence Design Systems logo"></div>
+
+      <div class="thumb has-img logo">
+        <img src="images/Cadence%20logo.png" alt="Cadence Design Systems logo">
+      </div>
+
       <div class="body">
+
         <h3>Software Engineering Intern, Cadence Design Systems</h3>
-        <p class="role">Cork · 8 months</p>
+
+        <p class="role">
+          Cork · 8 months
+        </p>
+
         <ul class="points">
           <li>Fixed customer-reported bugs in Virtuoso, the industry-standard custom IC design platform</li>
           <li>Ran a prototype project bringing Qt user interfaces into the product</li>
         </ul>
-        <ul class="tags"><li>C++</li><li>SKILL</li><li>Qt</li><li>Linux</li></ul>
+
+        <ul class="tags">
+          <li>C++</li>
+          <li>SKILL</li>
+          <li>Qt</li>
+          <li>Linux</li>
+        </ul>
+
         <div class="actions">
-          <a class="btn primary" href="projects/cadence-internship.html">Read more</a>
+          <a class="btn primary" href="projects/cadence-internship.html">
+            Read more
+          </a>
         </div>
+
       </div>
     </article>
   </div>
 </section>
 
-<!-- ================= FEATURED PROJECTS (with code) ================= -->
+
+<!-- ================= PROJECTS ================= -->
+
 <section id="projects">
   <div class="wrap">
+
     <h2>Projects</h2>
-    <p class="section-intro">Projects with source code on GitHub.</p>
+
+    <p class="section-intro">
+      Projects with source code on GitHub.
+    </p>
 
     <div class="grid">
 
+
+      <!-- Computer Vision -->
+
       <article class="card">
-        <div class="thumb has-img"><img src="images/computer%20vision%20image.jpg" alt="Icon of a thief carrying a sack, representing removed-object detection"></div>
+
+        <div class="thumb has-img">
+          <img
+            src="images/computer%20vision%20image.jpg"
+            alt="Icon of a thief carrying a sack, representing removed-object detection"
+          >
+        </div>
+
         <div class="body">
+
           <h3>Abandoned &amp; Removed Object Detection</h3>
-          <p>OpenCV/C++ pipeline that spots objects left behind or taken from a scene in surveillance video, scored against hand-labelled ground truth.</p>
-          <ul class="tags"><li>C++</li><li>OpenCV</li><li>Background subtraction</li><li>Tracking</li></ul>
+
+          <p>
+            OpenCV/C++ pipeline that spots objects left behind or taken from a scene
+            in surveillance video, scored against hand-labelled ground truth.
+          </p>
+
+          <ul class="tags">
+            <li>C++</li>
+            <li>OpenCV</li>
+            <li>Background subtraction</li>
+            <li>Tracking</li>
+          </ul>
+
           <div class="actions">
-            <a class="btn primary" href="projects/computer-vision.html">Read more</a>
-            <a class="btn" href="https://github.com/osullio/Computer-Vision-Project">Code</a>
+            <a class="btn primary" href="projects/computer-vision.html">
+              Read more
+            </a>
+
+            <a class="btn" href="https://github.com/osullio/Computer-Vision-Project">
+              Code
+            </a>
           </div>
+
         </div>
       </article>
 
+
+      <!-- Lunar Communication -->
+
       <article class="card">
-        <div class="thumb has-img"><img src="images/lunar%20rover%20image.jpg" alt="Lunar rover on the surface of the Moon"></div>
+
+        <div class="thumb has-img">
+          <img
+            src="images/lunar%20rover%20image.jpg"
+            alt="Lunar rover on the surface of the Moon"
+          >
+        </div>
+
         <div class="body">
+
           <h3>Earth–Moon Rover Communication</h3>
-          <p>Client/server protocol for a lunar rover with a hand-built binary header, Internet checksum, injected bit errors, light-speed delay and ACK/NAK recovery.</p>
-          <ul class="tags"><li>Python</li><li>C / Winsock</li><li>Sockets</li><li>Protocol design</li></ul>
+
+          <p>
+            Client/server protocol for a lunar rover with a hand-built binary header,
+            Internet checksum, injected bit errors, light-speed delay and ACK/NAK recovery.
+          </p>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>C / Winsock</li>
+            <li>Sockets</li>
+            <li>Protocol design</li>
+          </ul>
+
           <div class="actions">
-            <a class="btn primary" href="projects/earth-lunar.html">Read more</a>
-            <a class="btn" href="https://github.com/osullio/Earth-Lunar_Communication">Code</a>
+
+            <a class="btn primary" href="projects/earth-lunar.html">
+              Read more
+            </a>
+
+            <a class="btn" href="https://github.com/osullio/Earth-Lunar_Communication">
+              Code
+            </a>
+
           </div>
+
         </div>
       </article>
 
+
+      <!-- Arduino Pong -->
+
       <article class="card">
-        <div class="thumb has-img contain"><img src="images/pong%20image.png" alt="Pong game screen with two paddles, a ball and the score"></div>
+
+        <div class="thumb has-img contain">
+          <img
+            src="images/pong%20image.png"
+            alt="Pong game screen with two paddles, a ball and the score"
+          >
+        </div>
+
         <div class="body">
+
           <h3>Handheld Arduino Pong</h3>
-          <p>Pong console on an SSD1306 OLED, with interrupt-driven input and a bot that predicts the ball's path. Wiring designed in Fritzing.</p>
-          <ul class="tags"><li>Arduino</li><li>C++</li><li>Embedded</li><li>Fritzing</li></ul>
+
+          <p>
+            Pong console on an SSD1306 OLED, with interrupt-driven input and a bot
+            that predicts the ball's path. Wiring designed in Fritzing.
+          </p>
+
+          <ul class="tags">
+            <li>Arduino</li>
+            <li>C++</li>
+            <li>Embedded</li>
+            <li>Fritzing</li>
+          </ul>
+
           <div class="actions">
-            <a class="btn primary" href="projects/arduino-pong.html">Read more</a>
-            <a class="btn" href="https://github.com/osullio/gyroscopic-pong">Code</a>
-            <!-- EDIT: put this button on whichever project has the YouTube video -->
-            <a class="btn" href="https://www.youtube.com/watch?v=VIDEO_ID">Video</a>
+
+            <a class="btn primary" href="projects/arduino-pong.html">
+              Read more
+            </a>
+
+            <a class="btn" href="https://github.com/osullio/gyroscopic-pong">
+              Code
+            </a>
+
+            <a class="btn" href="https://www.youtube.com/watch?v=VIDEO_ID">
+              Video
+            </a>
+
           </div>
+
         </div>
       </article>
 
     </div>
   </div>
 </section>
+
 
 <!-- ================= CONTESTED ================= -->
+
 <section id="contested">
+
   <div class="wrap">
+
     <figure class="contested">
-      <img src="images/100_%20contested.jpg" alt="100% contested shot">
-      <figcaption>"You miss 100% of the 100% contested shots you don't take" – Ronnie 2K, probably</figcaption>
+
+      <img
+        src="images/100_%20contested.jpg"
+        alt="100% contested shot"
+      >
+
+      <figcaption>
+        "You miss 100% of the 100% contested shots you don't take" – Ronnie 2K, probably
+      </figcaption>
+
     </figure>
+
   </div>
+
 </section>
+
 
 <!-- ================= SKILLS ================= -->
+
 <section id="skills">
+
   <div class="wrap">
+
     <h2>Skills</h2>
+
     <div class="skills">
-      <div><h3>Languages</h3><ul class="tags"><li>C</li><li>C++</li><li>Python</li><li>SKILL</li><li>Arduino</li></ul></div>
-      <div><h3>Libraries &amp; tools</h3><ul class="tags"><li>Qt / Qt Creator</li><li>OpenCV</li><li>Git</li><li>Perforce</li><li>Linux</li></ul></div>
-      <div><h3>Hardware</h3><ul class="tags"><li>Embedded systems</li><li>Fritzing</li><li>OLED / SPI</li></ul></div>
-      <div><h3>Concepts</h3><ul class="tags"><li>Computer vision</li><li>Network protocols</li><li>Socket programming</li></ul></div>
+
+      <div>
+        <h3>Languages</h3>
+
+        <ul class="tags">
+          <li>C</li>
+          <li>C++</li>
+          <li>Python</li>
+          <li>SKILL</li>
+          <li>Arduino</li>
+        </ul>
+      </div>
+
+
+      <div>
+        <h3>Libraries &amp; tools</h3>
+
+        <ul class="tags">
+          <li>Qt / Qt Creator</li>
+          <li>OpenCV</li>
+          <li>Git</li>
+          <li>Perforce</li>
+          <li>Linux</li>
+        </ul>
+      </div>
+
+
+      <div>
+        <h3>Hardware</h3>
+
+        <ul class="tags">
+          <li>Embedded systems</li>
+          <li>Fritzing</li>
+          <li>OLED / SPI</li>
+        </ul>
+      </div>
+
+
+      <div>
+        <h3>Concepts</h3>
+
+        <ul class="tags">
+          <li>Computer vision</li>
+          <li>Network protocols</li>
+          <li>Socket programming</li>
+        </ul>
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section id="achievements">
+
+  <div class="wrap">
+
+    <h2>Achievements</h2>
+
+    <ul class="points">
+
+      <li>Intermediate County Football Medal 2024</li>
+
+      <li>Regional Mathematics Finalist 2022</li>
+
+      <li>Senior Hurling County Finalist 2023</li>
+
+      <li>3rd Place, Kildare Fleadh Cheoil</li>
+
+      <li>11 game winning streak in dueces court</li>
+
+      <li>99 overall my player (no vc spent)</li>
+
+    </ul>
+
+  </div>
+
+</section>
+
+
 <!-- ================= ABOUT ================= -->
+
 <section id="about">
-  <div class="wrap article">
+
+  <div class="wrap">
+
     <h2>About</h2>
+
     <p>
       I'm a Computer &amp; Electrical Engineering student at Trinity College Dublin from Kildare.
-      I've always been drawn to coding and mathematics, from reaching a regional maths final in school
-      to finishing fourth year with a first-class average. My recent modules include computer vision,
-      digital signal processing and deep learning.
+      I've always been drawn to coding and mathematics, from reaching a regional maths final in school.
+      My recent modules include computer vision, digital signal processing and deep learning.
     </p>
+
     <p>
       I've done two internships. At Cadence Design Systems I spent eight months on the VMT Infra team,
       prototyping Qt user interfaces for Virtuoso and refactoring core C++ code. Before that I spent four months at
       Happystack, a startup, where I worked across engineering, marketing and finance. There I wrote a Python
       tool that used the OpenAI API to analyse and organise data, and led a research project on Generative Engine Optimization.
     </p>
+
     <p>
       Away from the desk I play Gaelic football and hurling. I won an intermediate county football medal in 2024 and
       reached the senior hurling county final in 2023. I also play traditional Irish music and placed third at the Kildare Fleadh Cheoil.
-      <!-- EDIT: add a sentence on what you're looking for next -->
     </p>
+
   </div>
+
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
+
   <div class="wrap">
-    <span>© 2026 Oran O'Sullivan</span>
-    <span><a href="https://github.com/osullio">GitHub</a> · <a href="https://www.linkedin.com/in/oran-o-sullivan-99b3682a8">LinkedIn</a></span>
+
+    <span>
+      © 2026 Oran O'Sullivan
+    </span>
+
+    <span>
+      <a href="https://github.com/osullio">GitHub</a>
+      ·
+      <a href="https://www.linkedin.com/in/oran-o-sullivan-99b3682a8">LinkedIn</a>
+    </span>
+
   </div>
+
 </footer>
+
 
 </body>
 </html>
