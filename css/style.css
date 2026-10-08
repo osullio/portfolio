@@ -481,6 +481,11 @@ footer a {
   width: auto;
 }
 
+.gallery.wide img {
+  max-height: none;
+  width: 100%;
+}
+
 .gallery figcaption {
   font-size: .85rem;
   color: var(--muted);

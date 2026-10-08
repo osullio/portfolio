@@ -26,16 +26,18 @@
     <ul class="tags"><li>C++</li><li>OpenCV 4.12</li><li>Background subtraction</li><li>Object tracking</li><li>Evaluation</li></ul>
     <div class="links">
       <a class="btn primary" href="https://github.com/osullio/Computer-Vision-Project">View code on GitHub</a>
+      <a class="btn" href="../assets/img/Computer%20Vision%20Assignment.pdf">Read the full report (PDF)</a>
     </div>
   </div>
 </header>
 
 <main class="wrap article">
 
-  <div class="figure">
-    <!-- EDIT: add a screenshot of the four debug windows (frame, GMM mask, motion mask, detections):
-         <img src="../assets/img/cv-demo.jpg" alt="Detection output showing frame, foreground mask, motion mask and detected objects"> -->
-    Screenshot: frame · GMM mask · motion mask · detections
+  <div class="gallery wide">
+    <figure>
+      <img src="../images/Everything%20working%20together%20video%203.png" alt="The four debug windows running together: the frame with a REMOVED detection matching ground truth, the GMM mask, the suspected stationary objects mask and the motion mask">
+      <figcaption>Everything working together on Video 3: frame, GMM mask, suspected stationary objects and motion mask. The removed object is correctly labelled and lines up with the ground truth box.</figcaption>
+    </figure>
   </div>
 
   <h2>Overview</h2>
@@ -54,27 +56,55 @@
     <li><strong>Classification.</strong> Edges in the current frame are compared with a baseline of the empty scene. New edges mean an object was <em>abandoned</em>. Edges that have gone missing mean one was <em>removed</em>.</li>
   </ol>
 
+  <div class="gallery">
+    <figure>
+      <img src="../images/GMM%20and%20motion%20mask%20video%201.png" alt="GMM foreground mask beside the motion mask for Video 1">
+      <figcaption>GMM mask (left) and motion mask (right) on Video 1. Foreground that appears in the GMM mask but not in the motion mask is static.</figcaption>
+    </figure>
+  </div>
+
   <h2>Evaluation</h2>
   <p>
     Each detection is matched to ground truth when IoU ≥ 0.5 and it falls within ±120 frames.
     The program reports precision, recall and F1 for each video and overall, plus classification accuracy.
   </p>
   <div class="callout">
-    <!-- EDIT: paste your actual numbers from the program output -->
-    <strong>Results:</strong> Overall precision [x.xx], recall [x.xx], F1 [x.xx] across 9 test videos.
+    <strong>Results:</strong> overall F1 of 0.364. Recall was the strongest of the three metrics, which suits the
+    application: for a bomb scare or a theft, a false alarm is far better than a miss.
   </div>
+
+  <div class="gallery">
+    <figure>
+      <img src="../images/abandoned%20car%20success.png" alt="A parked car correctly labelled ABANDONED, with its box overlapping the ground truth">
+      <figcaption>A success: a parked car correctly labelled as abandoned, overlapping the ground truth.</figcaption>
+    </figure>
+    <figure>
+      <img src="../images/Video%2010%20failure.png" alt="Video 10 with many overlapping, conflicting ABANDONED and REMOVED boxes around a moving person">
+      <figcaption>A failure: Video 10's constant movement swamps the tracker with conflicting detections (from an earlier version).</figcaption>
+    </figure>
+  </div>
+
+  <h2>Where it falls short</h2>
+  <ul>
+    <li><strong>Video 10.</strong> Tracking many candidates, each with its own votes and a historic baseline, was too heavy for the most disruptive video, and the program crashed on it.</li>
+    <li><strong>Second events.</strong> The slow GMM learning rate keeps a left object from fading too soon, but it also means the scene takes a long time to settle, so a bag that is abandoned and later removed only triggers once.</li>
+    <li><strong>People standing still.</strong> Someone who stays still for long enough looks exactly like a static object. Tuning reduced this but didn't remove it.</li>
+    <li><strong>Small objects.</strong> Ignoring regions under 150 px cut a lot of noise but missed the small bag in Video 5. I tested lower limits and decided the trade-off wasn't worth it.</li>
+  </ul>
 
   <h2>What I learned</h2>
   <ul>
-    <li>[e.g. Tuning thresholds is a trade-off: a shorter persistence window catches more objects but brings in false alarms from people standing still.]</li>
-    <li>[e.g. Measuring against ground truth from the start made it clear which changes actually helped.]</li>
+    <li>Tuning thresholds is always a trade-off: a shorter persistence window catches more objects but brings in false alarms from people standing still.</li>
+    <li>Requiring 15 consistent frames before classifying cut false positives from the thousands to single digits, at the cost of extra computation.</li>
+    <li>Ground truth has opinions too. My detector flagged reflections in a monitor that changed when the scene changed. They're real changes, but the labels don't count them.</li>
   </ul>
 
   <h2>What I'd do next</h2>
   <ul>
-    <li>Fix the crash on Video 10 so the full dataset is covered.</li>
+    <li>Reduce the computational load so Video 10 runs and the full dataset is covered.</li>
+    <li>Experiment with GMM learning rates so repeat events in the same spot are detected.</li>
+    <li>Try other classification techniques, and combinations of them, to fix misclassifications.</li>
     <li>Make the pipeline cross-platform (it currently builds with MSVC on Windows only).</li>
-    <li>[Your own idea, e.g. a learned person detector to reject people who stand still.]</li>
   </ul>
 
 </main>
