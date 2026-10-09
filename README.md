@@ -16,11 +16,3 @@ projects/
 assets/
   img/                  Thumbnails and screenshots
 ```
-
-## Publishing
-Settings → Pages → Source: *Deploy from a branch* → `main` / `(root)` → Save.
-
-## Adding a project
-1. Copy `projects/_template.html` and fill it in.
-2. Copy a card in `index.html` and point its "Read more" button at the new page.
-3. Search the files for `EDIT` and `[` to find any placeholders you haven't filled in yet.
